@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-inferrable-types */
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { SubjectsService } from '../../core/services/subjects.service';
 import { Book } from 'src/app/core/models/book-response.model';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'front-end-internship-assignment-trending-subjects',
@@ -9,11 +11,9 @@ import { Book } from 'src/app/core/models/book-response.model';
   styleUrls: ['./trending-subjects.component.scss'],
 })
 export class TrendingSubjectsComponent implements OnInit {
-
+  mode: ProgressSpinnerMode = 'determinate';
   isLoading: boolean = true;
-
   subjectName: string = '';
-
   allBooks: Book[] = [];
 
   constructor(
@@ -36,5 +36,4 @@ export class TrendingSubjectsComponent implements OnInit {
       this.getAllBooks();
     });
   }
-
 }
